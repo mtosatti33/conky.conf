@@ -10,5 +10,5 @@ fi
 
 cp $CWD/.config/conky/conky.conf ~/.config/conky
 
-sed 's/wlx409bcd9656af/wlx409bcd9656af/g' ~/.config/conky/conky.conf
+sed -i 's/wlx409bcd9656af/wlp18s0b1/g' ~/.config/conky/conky.conf
 
