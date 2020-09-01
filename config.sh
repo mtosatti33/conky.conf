@@ -4,11 +4,14 @@
 CWD=$(pwd)
 
 #usa-se o sed pra modificar o adaptador da conexão
-if [ ! -e ~/.config/conky ]; then
+if [ ! -d ~/.config/conky ]; then
     mkdir ~/.config/conky
 fi
 
-cp $CWD/.config/conky/conky.conf ~/.config/conky
+#cria link se ele não existir
+if [ ! -e ~/.config/conky/conky.conf ]; then
+	ln -s $CWD/.config/conky/conky.conf ~/.config/conky/conky.conf
+fi
 
-sed -i 's/wlx409bcd9656af/wlp18s0b1/g' ~/.config/conky/conky.conf
-
+#Modifica a placa wireless particular ao meu caso
+sed -i 's/wlx409bcd9656af/wlp18s0b1/g' $CWD/.config/conky/conky.conf
